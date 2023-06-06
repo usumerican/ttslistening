@@ -1,0 +1,143 @@
+.ttslistening {
+  position: relative;
+  -webkit-tap-highlight-color: transparent;
+
+  $gap: 4px;
+  $rh: 3rem;
+
+  @mixin Layout {
+    display: grid;
+    gap: $gap;
+  }
+
+  * {
+    box-sizing: border-box;
+    color: #000;
+    font: 1rem 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', sans-serif;
+    margin: 0;
+    overflow: hidden;
+  }
+
+  article {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    padding: $gap;
+    background: #fd0;
+  }
+
+  aside {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  button {
+    cursor: pointer;
+  }
+
+  output {
+    display: grid;
+    place-items: center left;
+    padding: $gap;
+  }
+
+  select {
+    cursor: pointer;
+    appearance: menulist-button;
+    width: 100%;
+  }
+
+  textarea {
+    overflow-y: scroll;
+    resize: none;
+  }
+
+  .Bar {
+    @include Layout;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+  }
+
+  .Center {
+    display: grid;
+    place-items: center;
+  }
+
+  .HomeView {
+    @include Layout;
+    grid-template-rows: 2rem 1fr $rh;
+
+    .BookTable {
+      @include Layout;
+      grid-auto-flow: row;
+      grid-auto-rows: $rh;
+      overflow-y: scroll;
+    }
+
+    .BookRow {
+      @include Layout;
+      grid-template-columns: 1fr 4rem 4rem;
+    }
+
+    .BookOutput {
+      background: #ffc;
+    }
+  }
+
+  .ConfirmForm {
+    width: 80%;
+    padding: $gap;
+    @include Layout;
+    grid-template-rows: 6rem 3rem;
+    background: #eee;
+  }
+
+  .EditForm {
+    width: 100%;
+    height: 100%;
+    @include Layout;
+    grid-template-rows: $rh 1fr $rh $rh $rh $rh;
+
+    label {
+      @include Layout;
+      grid-template-columns: 4rem 1fr;
+    }
+  }
+
+  .PlayView {
+    @include Layout;
+    grid-template-rows: 2rem 2rem 1fr $rh;
+
+    .QuestionTable {
+      display: flex;
+      gap: $gap;
+      flex-direction: column;
+      overflow-y: scroll;
+
+      * {
+        min-height: $rh;
+        font-size: 2rem;
+      }
+    }
+  }
+
+  .JudgmentOutput {
+    width: 80%;
+    padding: 2rem;
+    font-size: 2rem;
+  }
+
+  .Correct {
+    background: #cfc;
+  }
+
+  .Incorrect {
+    background: #fcc;
+  }
+
+  .Finished {
+    background: #ffc;
+  }
+}
