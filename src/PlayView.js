@@ -1,3 +1,5 @@
+import { shuffle } from 'jshuffle';
+
 export default class PlayView {
   constructor(app) {
     this.app = app;
@@ -124,26 +126,4 @@ export default class PlayView {
   stop() {
     this.app.stopSpeaking();
   }
-}
-
-function shuffle(arr, start, end) {
-  if (start < 0) {
-    start += arr.length;
-  }
-  if (!(start >= 0)) {
-    start = 0;
-  }
-  if (end < 0) {
-    end += arr.length;
-  }
-  if (!(end <= arr.length)) {
-    end = arr.length;
-  }
-  for (let n = end - start, i = end - 1; n >= 2; n--, i--) {
-    let j = (start + Math.random() * n) | 0;
-    let t = arr[i];
-    arr[i] = arr[j];
-    arr[j] = t;
-  }
-  return arr;
 }
